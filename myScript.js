@@ -16,6 +16,10 @@ BONUS 2: Applica stili differenti agli elementi aggiunti al DOM nel BONUS 1, a s
 Se sei a corto di idee per lo stile, potresti prendere spunto dallo screenshot fornito in consegna.
 */
 
+
+//E' STATO CREATO UN CONTAINER NELL'HTML
+const containerHTML = document.querySelector('.container');
+
 //stampare in console numeri da 1 a 100
 
 for (let numbers = 1; numbers <= 100; numbers++){
@@ -33,23 +37,43 @@ for (let numbers = 1; numbers <= 100; numbers++){
     NB bisogna considerare l'ordine delle condizioni, 
     se prima considerasse solo i multipli di 3 non arriverebbe alla condizione che potrebbe essere anche multiplo di 5
     */
+
+    const cell = document.createElement('div')
+    cell.className = 'cell'
    
+    let text = ''
+
     if (numbers % 3 === 0 && numbers % 5 === 0){
-        console.log('Fizz')
+        console.log('FizzBuzz')
+        text = 'FizzBuzz'
+        cell.classList.add('red')
     }
     //stampare BUZZ sui multipli di 5, invece del numero
     else if (numbers % 5 === 0){
         console.log('Buzz')
+        text = 'Buzz'
+        cell.classList.add('yellow')
     }
     //stampare FIZZ sui multipli di 3, invece del numero
     else if (numbers % 3 === 0){
-        console.log('FizzBuzz')
+        console.log('Fizz')
+        text = 'Fizz'
+        cell.classList.add('green')
     }
     //se non rientra nelle precedenti condizioni allora:
     else{
         console.log(numbers)
+        text = numbers
     }
+
+    cell.innerHTML = text
+    console.log('questo è il contenuto', text)
+    console.log(cell)
+    containerHTML.append(cell)
 }
+
+//BONUS 1: Crea un container nel DOM , aggiungendo (attraverso la funzione append()) un elemento html con il numero o la stringa corretta da mostrare.
+//BONUS 2: Applica stili differenti agli elementi aggiunti al DOM nel BONUS 1, a seconda che il valore inserito sia un numero, un fizz, un buzz o un fizzbuzz.
 
 
 
